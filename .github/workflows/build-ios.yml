@@ -1,0 +1,42 @@
+name: Build Expo iOS App
+
+on:
+  push:
+    branches:
+      - main # Change this to the branch you want to build
+
+jobs:
+  build:
+    runs-on: macos-latest # macOS is required to build iOS apps
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x # Change this to the Node.js version you need
+
+      - name: Install dependencies
+        run: |
+          npm ci
+          npm install -g expo-cli
+
+      - name: Build Expo app
+        run: expo build:ios --release-channel production --no-publish
+
+      - name: Upload Expo artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: expo-app
+          path: |
+            ./dist/ios/
+            ./dist/app-manifest.json
+            ./dist/keys/
+
+    #   - name: Submit to TestFlight
+    #     env:
+    #       EXPO_APPLE_APP_SPECIFIC_PASSWORD: ${{ secrets.EXPO_APPLE_APP_SPECIFIC_PASSWORD }}
+    #       EXPO_APPLE_PASSWORD: ${{ secrets.EXPO_APPLE_PASSWORD }}
+    #     run: |
+    #       expo build:ios --release-channel production

@@ -24,7 +24,7 @@ jobs:
           npm install -g eas-cli
 
       - name: Login into Expo App Services account
-        run: export EXPO_TOKEN=${{ secrets.EXPO_PERSONAL_ACCESS_TOKEN }}
+        run: export EXPO_TOKEN="${{ secrets.EXPO_PERSONAL_ACCESS_TOKEN }}"
 
       - name: Build Expo app
         run: eas build --platform ios --local

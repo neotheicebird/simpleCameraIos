@@ -13,7 +13,7 @@
     },
     "ios": {
       "supportsTablet": true,
-      "buildIdentifier": "93102dfc-1ad8-abc123"
+      "bundleIdentifier": "93102dfc-1ad8-abc123"
     },
     "android": {
       "adaptiveIcon": {

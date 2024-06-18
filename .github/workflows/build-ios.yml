@@ -21,6 +21,7 @@ jobs:
         uses: expo/expo-github-action@v8
         with:
           eas-version: latest
+          expo-version: latest
           token: ${{ secrets.EXPO_PERSONAL_ACCESS_TOKEN }}
 
       # - name: set env
@@ -32,24 +33,26 @@ jobs:
       #     echo "EAS_BUILD_PROFILE=production" >> $GITHUB_ENV
       #     echo "EAS_BUILD_WORKINGDIR=dist" >> $GITHUB_ENV
       - name: Install dependencies
-        run: |
-          npm ci
-          npm install -g expo-cli
-          npm install -g eas-cli
+        run: npm ci
 
       # using eas.json
-      - name: Build Expo app
-        run: eas build --platform ios --profile production --local --non-interactive --skip-credentials-check
-
-
-      - name: Upload Expo artifact
-        uses: actions/upload-artifact@v3
+      # - name: Build Expo app
+      #   run: eas build --platform ios --profile production --local --non-interactive
+      - name: Build iOS app
+        run: eas build --platform ios --local --non-interactive --output ${{ github.workspace }}/app-release.ipa
+      - name: Upload IPA artifact
+        uses: actions/upload-artifact@v4
         with:
-          name: expo-app
-          path: |
-            ./dist/ios/
-            ./dist/app-manifest.json
-            ./dist/keys/
+          name: app-release
+          path: ${{ github.workspace }}/app-release.ipa
+      # - name: Upload Expo artifact
+      #   uses: actions/upload-artifact@v3
+      #   with:
+      #     name: expo-app
+      #     path: |
+      #       ./dist/ios/
+      #       ./dist/app-manifest.json
+      #       ./dist/keys/
 
     #   - name: Submit to TestFlight
     #     env:

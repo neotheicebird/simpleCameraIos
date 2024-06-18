@@ -39,7 +39,9 @@ jobs:
 
       # using eas.json
       - name: Build Expo app
-        run: eas build --platform ios --profile production --local
+        run: |
+          eas init
+          eas build --platform ios --profile production --local --non-interactive
 
 
       - name: Upload Expo artifact

@@ -39,39 +39,4 @@ cp <example>/ios ../simple-camera-expo/
 
 ## Add camera module and take pictures
 
-```
-npm install react-native-camera --save
-
-npx react-native-asset
-```
-
-Create `react-native.config.js` with the content
-
-```
-module.exports = {
-  project: {
-    ios: {},
-    android: {}, // You can leave this empty if you're not targeting Android
-  },
-  assets: [
-    "./assets/fonts/", // If you have any custom fonts, specify their directory here
-  ],
-  dependencies: {
-    "expo-camera": {
-      platforms: {
-        ios: {
-          camertaPermission: "CameraPermission.camera",
-          microphonePermission: "PermissionsAndroid.PERMISSIONS.RECORD_AUDIO",
-        },
-      },
-    },
-  },
-};
-```
-
-Add following key to `Info.plist` in ios directory
-
-```
-<key>NSCameraUsageDescription</key>
-<string>We need access to your camera to take photos</string>
-```
+refer to expo camera docs

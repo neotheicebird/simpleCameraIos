@@ -31,7 +31,7 @@ jobs:
 
       # using eas.json
       - name: Build Expo app
-        run: eas build --non-interactive --platform ios --local --profile development
+        run: eas build --non-interactive --platform ios --local --profile preview
 
       - name: Upload Expo artifact
         uses: actions/upload-artifact@v3

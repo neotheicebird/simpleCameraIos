@@ -29,10 +29,9 @@ jobs:
           npm install -g expo-cli
           npm install -g eas-cli
 
+      # using eas.json
       - name: Build Expo app
-        run: |
-          eas init
-          eas build --non-interactive --platform ios --local
+        run: eas build --non-interactive --platform ios --local --profile development
 
       - name: Upload Expo artifact
         uses: actions/upload-artifact@v3

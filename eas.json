@@ -5,8 +5,14 @@
         "distribution": "internal"
       },
       "preview": {
-        "distribution": "internal"
-      },
+        "distribution": "internal",
+        "ios": {
+          "buildType": "app-store"
+        },
+        "android": {
+          "buildType": "apk"
+        }
+    },
       "production": {
         "distribution": "internal",
         "env": {

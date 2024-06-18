@@ -22,8 +22,11 @@ jobs:
           npm ci
           npm install -g expo-cli
 
+      - name: Login into Expo App Services account
+        run: export EXPO_TOKEN=${{ secrets.EXPO_PERSONAL_ACCESS_TOKEN }}
+
       - name: Build Expo app
-        run: expo build:ios --release-channel production --no-publish
+        run: eas build --platform ios --local
 
       - name: Upload Expo artifact
         uses: actions/upload-artifact@v3

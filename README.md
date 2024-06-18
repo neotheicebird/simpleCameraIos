@@ -40,3 +40,15 @@ cp <example>/ios ../simple-camera-expo/
 ## Add camera module and take pictures
 
 refer to expo camera docs
+
+## Add camera module and take pictures
+
+refer to expo-camera docs
+
+## Configure project
+
+The project needs to be configured with EAS, before builds, even local one can be made. Make sure you have signed up for an EAS account.
+
+```
+eas build:configure
+```

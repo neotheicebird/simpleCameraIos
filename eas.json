@@ -4,22 +4,10 @@
         "developmentClient": true,
         "distribution": "internal"
       },
-      "preview": {
-        "distribution": "internal",
-        "ios": {
-          "buildType": "app-store"
-        },
-        "android": {
-          "buildType": "apk"
-        }
-    },
       "production": {
-        "distribution": "internal",
+        "distribution": "store",
         "env": {
           "EXPO_PUBLIC_API_URL": "https://api.production.com"
-        },
-        "ios": {
-          "buildType": "release"
         }
       }
     }

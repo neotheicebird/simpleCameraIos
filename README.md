@@ -52,3 +52,7 @@ The project needs to be configured with EAS, before builds, even local one can b
 ```
 eas build:configure
 ```
+
+### Notes
+
+`bundleIdentifier`: A unique ID in apple registry, apple suggests using reverse of website name, for example if the app is for google.com, then the bundleIdentifier could be "com.google"

@@ -43,7 +43,7 @@ jobs:
         # run: eas build --platform ios --local --non-interactive --output ${{ github.workspace }}/app-release.ipa
         # Trigger a build using Expo EAS, don't wait for the build to complete, the build will be added to EAS account. You can add --auto-submit to submit to app store
         # you can also make submissions to TestFlight and manually submit to app store later.
-        run: eas build --platform all --non-interactive --no-wait
+        run: eas build --platform ios --non-interactive --no-wait
 
       - name: Upload IPA artifact
         uses: actions/upload-artifact@v4
